@@ -26,3 +26,15 @@ class EventResponse(BaseModel):
     per_user_limit: int
     open_at: datetime
     close_at: datetime
+
+    
+class IssueRequest(BaseModel):
+    user_id: str = Field(min_length=1, max_length=50)
+
+
+class IssueResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    event_id: int
+    user_id: str
